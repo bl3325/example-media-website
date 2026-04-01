@@ -1,0 +1,9 @@
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userIcon {
+    aspect-ratio: 1/1;
+}
