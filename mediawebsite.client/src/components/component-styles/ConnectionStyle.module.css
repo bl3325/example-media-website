@@ -1,3 +1,8 @@
+.layout {
+    width: 350px;
+    box-sizing: border-box;
+}
+
 .imgContainer {
     display: flex;
     justify-content: center;
@@ -6,4 +11,9 @@
 
 .userIcon {
     aspect-ratio: 1/1;
+}
+
+h5, p {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

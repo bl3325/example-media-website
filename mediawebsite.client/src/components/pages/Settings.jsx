@@ -14,6 +14,8 @@ function Settings() {
 
                     <hr className="border-secondary"></hr>
 
+                    <h6 className="text-center ">Settings</h6>
+
                     <div className={`${styles.searchContent} button-group-vertical`} role="group" aria-label="Vertical button group">
                         <button type="button" class="btn">Setting 1</button>
                         <button type="button" class="btn">Setting 2</button>

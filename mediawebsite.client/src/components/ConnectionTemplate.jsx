@@ -3,10 +3,10 @@ import userIcon from "../assets/user-icon.jpg"
 
 function Connection({ title, description }) {
     return (
-        <div className="card mb-3" style={{ maxWidth: "540px" }}>
+        <div className={`${styles.layout} card mb-3`} style={{ maxWidth: "540px" }}>
             <div className="row g-0">
                 <div className={`${styles.imgContainer} col-md-4`}>
-                    <img src={userIcon} className={`${styles.userIcon} img-fluid rounded-start`} alt="user icon"></img>
+                    <img src={userIcon} className={`${styles.userIcon} card-img img-fluid rounded-start`} alt="user icon"></img>
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">

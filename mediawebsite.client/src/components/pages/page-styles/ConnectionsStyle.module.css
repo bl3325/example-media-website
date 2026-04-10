@@ -1,5 +1,6 @@
 .layout {
-    width: 70vw;
+    width: 1152px;
+    min-width: 432px;
     height: 80vh;
 
     padding: 10px;
@@ -45,19 +46,33 @@
 
 .connectionsHeader {
     display: inline-block;
+    width: fit-content;
+    padding-left: 15px;
 }
 
 .connectionsHeader hr {
-    width: 120%;
+    width: 130%;
     margin: 0;
 }
 
 .connectionsContainer {
     width: 100%;
-
     padding: 15px;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: 10px;
+    justify-content: start;
+}
+
+@media (max-width: 1186px) {
+    .layout {
+        width: 792px;
+    }
+}
+
+@media (max-width: 810px) {
+    .layout {
+        width: 402px;
+    }
 }

@@ -10,7 +10,7 @@ function Connections() {
 
     return (
         <div className={`${styles.layout}`}>
-            <div className={`${styles.mainContainer} bg-light`}>
+            <div className={`${styles.mainContainer} bg-light border-secondary`}>
                 <div className={`${styles.searchBar} `}>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search Connections" aria-label="Search" />
@@ -18,12 +18,12 @@ function Connections() {
                     </form>
                 </div>
 
-                <div className={`${styles.container} `}>
-                    <div className={ styles.connectionsHeader }>
-                        <span className="lead">Connections (0)</span>
-                        <hr className="border-secondary"></hr>
-                    </div>
+                <div className={styles.connectionsHeader}>
+                    <span className="lead">Connections (0)</span>
+                    <hr className="border-secondary"></hr>
+                </div>
 
+                <div className={`${styles.container} `}>
                     <div className={`${styles.connectionsContainer} `}>
                         {cardsData.map((card, index) => (
                             <Connection key={index} title={card.title} description={card.description} />
