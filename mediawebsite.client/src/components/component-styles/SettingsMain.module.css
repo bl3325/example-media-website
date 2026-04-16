@@ -1,0 +1,25 @@
+.layout {
+    width: 100%;
+    height: 100%;
+
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.contentContainer {
+    width: 100%;
+    flex: 1;
+
+    text-align: left;
+}
+
+.subSection {
+    width: 100%;
+}

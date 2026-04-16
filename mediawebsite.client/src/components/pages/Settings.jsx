@@ -1,6 +1,15 @@
+import { useState } from "react"
+
 import styles from "./page-styles/SettingsStyle.module.css"
+import Appearance from "../SettingsComps/Appearance.jsx"
+import Account from "../SettingsComps/Account.jsx"
+
+import AccountIcon from "../../../src/assets/padlock.png"
+import AppearanceIcon from "../../../src/assets/art-palette.png"
 
 function Settings() {
+    const [activePage, setActivePage] = useState("Account")
+
     return (
         <div className={styles.layout}>
             <div className={`${styles.settingsMain} border-secondary bg-light`}>
@@ -17,15 +26,23 @@ function Settings() {
                     <h6 className="text-center ">Settings</h6>
 
                     <div className={`${styles.searchContent} button-group-vertical`} role="group" aria-label="Vertical button group">
-                        <button type="button" class="btn">Setting 1</button>
-                        <button type="button" class="btn">Setting 2</button>
-                        <button type="button" class="btn">Setting 3</button>
-                        <button type="button" class="btn">Setting 4</button>
+
+                        <button type="button" className={`${activePage === "Account" ? styles.buttonActive : ""} btn`} onClick={() => setActivePage("Account")}>
+                            <img className="ratio ratio-1x1 me-1" src={AccountIcon} style={{ width: "1rem" }}></img>
+                            Account
+                        </button>
+
+                        <button type="button" className={`${activePage === "Appearance" ? styles.buttonActive : ""} btn`} onClick={() => setActivePage("Appearance")}>
+                            <img className="ratio ratio-1x1 me-1" src={AppearanceIcon} style={{ width: "1rem" }}></img>
+                            Appearance
+                        </button>
+
                     </div>
                 </aside>
 
                 <div className={`${styles.mainContent}`}>
-                       
+                    {activePage === "Account" && <Account />}
+                    {activePage === "Appearance" && <Appearance />}
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import styles from "./component-styles/ConnectionMessage.module.css"
-import placeholderUserIcon from "../../src/assets/user-icon.jpg"
+import placeholderUserIcon from "../../src/assets/user-icon.png"
 
 function ConnectionMessage({ name, lastMessage }) {
     return (

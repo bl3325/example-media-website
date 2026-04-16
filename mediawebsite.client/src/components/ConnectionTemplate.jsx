@@ -1,5 +1,5 @@
 import styles from "./component-styles/ConnectionStyle.module.css"
-import userIcon from "../assets/user-icon.jpg"
+import userIcon from "../assets/user-icon.png"
 
 function Connection({ title, description }) {
     return (

@@ -1,12 +1,11 @@
+import { useState } from "react"
 import styles from "./page-styles/ConnectionsStyle.module.css"
-import Connection from "../ConnectionTemplate"
+
+import ConnectionList from "../ConnectionList"
+import ConnectionSearch from "../ConnectionSearch"
 
 function Connections() {
-    const cardsData = [
-        { title: "Card 1", description: "This is the first card." },
-        { title: "Card 2", description: "This is the second card." },
-        { title: "Card 3", description: "This is the third card." },
-    ];
+    const [activePage, setActivePage] = useState("connections");
 
     return (
         <div className={`${styles.layout}`}>
@@ -19,20 +18,17 @@ function Connections() {
                 </div>
 
                 <div className={styles.connectionsHeader}>
-                    <span className="lead">Connections (0)</span>
-                    <hr className="border-secondary"></hr>
+                    <button className="btn p-1 lead" onClick={() => setActivePage("connections")}>Connections (0)</button>
+                    <button className="btn p-1 ms-3 lead" onClick={() => setActivePage("search")}>Search</button>
+                    {/*<hr className="border-secondary"></hr>*/}
                 </div>
 
-                <div className={`${styles.container} `}>
-                    <div className={`${styles.connectionsContainer} `}>
-                        {cardsData.map((card, index) => (
-                            <Connection key={index} title={card.title} description={card.description} />
-                        ))}
-                    </div>
-                </div>
+                {activePage === "connections" && <ConnectionList />}
+                {activePage === "search" && <ConnectionSearch />}
+
             </div>
         </div>
-  );
+    );
 }
 
 export default Connections;

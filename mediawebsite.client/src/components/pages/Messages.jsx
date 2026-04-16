@@ -1,5 +1,5 @@
 import styles from "./page-styles/MessagesStyle.module.css"
-import ConnectionMessage from "../ConnectionMessage"
+import ConnectionMessage from "../MessageBar"
 
 function Messages() {
     const exampleConnections = [

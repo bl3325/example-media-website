@@ -25,25 +25,6 @@
     padding: 10px;
 }
 
-.container {
-    width: 100%;
-    flex-grow: 1;
-
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    padding: 15px;
-    padding-top: 5px;
-
-    text-align: left;
-}
-
-.container::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-}
-
 .connectionsHeader {
     display: inline-block;
     width: fit-content;
@@ -51,8 +32,17 @@
 }
 
 .connectionsHeader hr {
-    width: 130%;
+    width: 100%;
     margin: 0;
+}
+
+.connectionsHeader button {
+    transition: background-color 0.2s ease;
+    border: none;
+}
+
+.connectionsHeader button:hover {
+    background-color: rgba(164, 193, 245, 0.5);
 }
 
 .connectionsContainer {

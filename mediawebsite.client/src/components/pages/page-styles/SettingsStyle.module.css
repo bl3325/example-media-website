@@ -2,6 +2,7 @@
     padding: 10px;
 
     width: 60vw;
+    min-width: fit-content;
     height: 80vh;
 
     margin-left: auto;
@@ -45,8 +46,9 @@
 
 .mainContent {
     width: 75%;
-    min-width: 400px;
+    min-width: fit-content;
     height: 100%;
+    padding: 5px;
 
     overflow-y: scroll;
     scrollbar-width: none;
@@ -82,5 +84,9 @@
 }
 
 .searchContent button:hover {
+    background-color: rgba(164, 193, 245, 0.5);
+}
+
+.buttonActive {
     background-color: rgba(164, 193, 245, 0.5);
 }
