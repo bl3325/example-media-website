@@ -6,6 +6,8 @@ import Home from "./components/pages/Home"
 import Messages from "./components/pages/Messages"
 import Connections from "./components/pages/Connections"
 import Settings from "./components/pages/Settings"
+import Login from "./components/pages/AccountLogin"
+import SignUp from "./components/pages/AccountSignUp"
 
 function App() {
     return (
@@ -20,6 +22,8 @@ function App() {
                         <Route path="/messages" element={<Messages />} />
                         <Route path="/connections" element={<Connections />} />
                         <Route path="/settings" element={<Settings />} />
+                        <Route path="/account/login" element={<Login />} />
+                        <Route path="/account/signup" element={<SignUp />} />
                     </Routes>
                 </main>
 

@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom"
+
+import userIcon from "../assets/user-icon.png"
+
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,7 +18,7 @@ function Navbar() {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navMenu">
-                    <ul className="navbar-nav ms-auto">
+                    <ul className="navbar-nav ms-auto" style={{ height: "100%" }}>
 
                         <li className="nav-item">
                             <a className="nav-link" href="/">Home</a>
@@ -38,6 +42,11 @@ function Navbar() {
                             </ul>
                         </li>
 
+                        <li className="nav-item">
+                            <Link to="/account/login">
+                                <img src={userIcon} style={{ width: "2.5rem" }}></img>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

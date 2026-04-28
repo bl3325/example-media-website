@@ -1,0 +1,30 @@
+.layout {
+    padding: 10px;
+
+    width: 50vw;
+    max-width: 100%;
+    min-width: fit-content;
+    height: 80vh;
+    max-height: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 50%;
+    min-width: 400px;
+    height: fit-content;
+    max-height: 100%;
+    
+    padding: 10px;
+}
+
+.credential {
+    height: 2rem;
+}
+
