@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace YourProject.Data
+namespace MediaWebsite.Server.Data
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
