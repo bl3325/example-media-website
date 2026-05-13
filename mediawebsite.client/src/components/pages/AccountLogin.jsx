@@ -6,6 +6,8 @@ function AccountLogin() {
     return (
         <div className={styles.layout}>
             <div className={`${styles.card} bg-light rounded-2 shadow d-flex flex-column align-items-center`}>
+                <div className="bg-success w-100 rounded-top" style={{ height: "10px"}}></div>
+
                 <p className="text-center p-2 fs-3 text-decoration-underline">Login</p>
 
                 <div style={{ width: "80%" }}>
