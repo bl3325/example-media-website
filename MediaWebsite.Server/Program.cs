@@ -38,6 +38,12 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
+// Add this conventional route so controllers without attribute routes are reachable
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+
 app.MapFallbackToFile("/index.html");
 
 //Check DB Migrations

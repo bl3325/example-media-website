@@ -1,7 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+    plugins: [react()],
+    server: {
+        proxy: {
+            '/Account': {
+                target: 'https://localhost:7073', // set to your backend HTTPS port
+                changeOrigin: true,
+                secure: false
+            }
+        }
+    }
 })

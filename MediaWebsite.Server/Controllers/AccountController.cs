@@ -7,7 +7,6 @@ using MediaWebsite.Server.Models;
 
 namespace MediaWebsite.Server.Controllers
 {
-
     [Authorize]
     public class AccountController : Controller
     {
@@ -21,16 +20,18 @@ namespace MediaWebsite.Server.Controllers
         }
 
         // Registering Accounts
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            Console.WriteLine("Called Register");
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            Console.WriteLine("Valid Model");
 
             var user = new ApplicationUser
             {
                 UserName = model.UserName,
                 Email = model.Email,
-                PasswordHash = model.Password,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -38,22 +39,19 @@ namespace MediaWebsite.Server.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
-            };
+                return Ok();
+            }
+            ;
 
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("", error.Description);
-            };
-
-            return View(model);
-         }
+            return BadRequest(result.Errors);
+        }
 
         // Account Logins
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var result = await _signInManager.PasswordSignInAsync(
                 model.Email,
@@ -64,19 +62,19 @@ namespace MediaWebsite.Server.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
-            };
+                return Ok();
+            }
+            ;
 
-            ModelState.AddModelError("", "Invalid Login Attempt");
-            return View(model);
+            return Unauthorized(new { error = "Invalid Login Attempt" });
         }
 
-        // Accoung Logouts
+        // Account Logouts
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return Ok();
         }
     }
 }
