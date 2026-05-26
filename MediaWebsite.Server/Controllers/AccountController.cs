@@ -76,5 +76,15 @@ namespace MediaWebsite.Server.Controllers
             await _signInManager.SignOutAsync();
             return Ok();
         }
+
+        // Viewing Account Login Status
+        [HttpGet]
+        public IActionResult IsLoggedIn()
+        {
+            return Json(new
+            {
+                authenticated = User.Identity?.IsAuthenticated ?? false
+            });
+        }
     }
 }

@@ -1,8 +1,21 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 import userIcon from "../assets/user-icon.png"
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    async function handleUserIconClick() {
+        const resp = await fetch("/Account/IsLoggedIn");
+        const data = await resp.json();
+
+        if (data.authenticated) {
+            navigate("/Settings");
+        } else {
+            navigate("/Account/Login");
+        }
+    };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
@@ -43,9 +56,7 @@ function Navbar() {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="/account/login">
-                                <img src={userIcon} style={{ width: "2.5rem" }}></img>
-                            </Link>
+                            <img src={userIcon} style={{ width: "2.5rem", cursor: "pointer" }} onClick={handleUserIconClick}></img>
                         </li>
                     </ul>
                 </div>
