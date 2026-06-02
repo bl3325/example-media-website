@@ -8,6 +8,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './assets/scss/custom.scss';
 import './assets/scss/theme-overrides.scss';
 
+import initTheme from "./utils/DataTheme.js";
+
+initTheme().catch(() => { });
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

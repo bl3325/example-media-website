@@ -6,7 +6,12 @@ export default defineConfig({
     server: {
         proxy: {
             '/Account': {
-                target: 'https://localhost:7073', // set to your backend HTTPS port
+                target: 'https://localhost:7073',
+                changeOrigin: true,
+                secure: false
+            },
+            '/api': {
+                target: 'https://localhost:7073',
                 changeOrigin: true,
                 secure: false
             }

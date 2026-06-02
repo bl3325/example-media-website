@@ -44,3 +44,10 @@
 
     text-overflow: ellipsis;
 }
+
+.buttonActive {
+    background-color: rgba(var(--bs-primary-rgb), 0.28) !important;
+    border-color: var(--app-accent) !important;
+    color: var(--app-on-surface) !important;
+    outline: none;
+}

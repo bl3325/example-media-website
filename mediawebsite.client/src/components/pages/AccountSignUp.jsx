@@ -40,8 +40,8 @@ function AccountSignUp() {
 
     return (
         <div className={styles.layout}>
-            <form className={`${styles.card} bg-light rounded-2 shadow d-flex flex-column align-items-center`} onSubmit={handleSubmit}>
-                <div className="bg-primary w-100 rounded-top" style={{ height: "10px" }} />
+            <form className={`${styles.card} bg-surface rounded-2 shadow d-flex flex-column align-items-center`} onSubmit={handleSubmit}>
+                <div className="bg-accent w-100 rounded-top" style={{ height: "10px" }} />
                 <p className="text-center p-2 fs-3 text-decoration-underline">Sign Up</p>
                 <div style={{ width: "80%" }}>
                     <p className="fs-6 mb-1 text-start">Username</p>
@@ -51,7 +51,7 @@ function AccountSignUp() {
                     <p className="fs-6 mb-1 text-start">Password</p>
                     <input value={password} onChange={e => setPassword(e.target.value)} type="password" className="form-control mb-4" />
                 </div>
-                <button type="submit" className="btn btn-outline-success shadow-sm mb-3">Sign Up</button>
+                <button type="submit" className="btn btn-theme shadow-sm mb-3">Sign Up</button>
                 {error && <div className="text-danger mb-2 text-align-center">Unable to Register</div>}
             </form>
         </div>

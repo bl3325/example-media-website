@@ -9,18 +9,17 @@ function Connections() {
 
     return (
         <div className={`${styles.layout}`}>
-            <div className={`${styles.mainContainer} bg-light border-secondary`}>
+            <div className={`${styles.mainContainer} bg-surface border-theme`}>
                 <div className={`${styles.searchBar} `}>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search Connections" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                        <button className="btn btn-theme-outline search-hover" type="submit">Search</button>
                     </form>
                 </div>
 
                 <div className={styles.connectionsHeader}>
-                    <button className="btn p-1 lead" onClick={() => setActivePage("connections")}>Connections (0)</button>
-                    <button className="btn p-1 ms-3 lead" onClick={() => setActivePage("search")}>Search</button>
-                    {/*<hr className="border-secondary"></hr>*/}
+                    <button className={`${ activePage === "connections" ? styles.buttonActive : "" } btn p-1 lead primary-hover`} onClick={() => setActivePage("connections")}>Connections (0)</button>
+                    <button className={`${activePage === "search" ? styles.buttonActive : ""} btn ms-1 p-1 lead primary-hover`} onClick={() => setActivePage("search")}>Search</button>
                 </div>
 
                 {activePage === "connections" && <ConnectionList />}

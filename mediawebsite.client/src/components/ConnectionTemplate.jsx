@@ -3,7 +3,7 @@ import userIcon from "../assets/user-icon.png"
 
 function Connection({ title, description }) {
     return (
-        <div className={`${styles.layout} card mb-3`} style={{ maxWidth: "540px" }}>
+        <div className={`${styles.layout} card mb-3 bg-surface border-theme`} style={{ maxWidth: "540px" }}>
             <div className="row g-0">
                 <div className={`${styles.imgContainer} col-md-4`}>
                     <img src={userIcon} className={`${styles.userIcon} card-img img-fluid rounded-start`} alt="user icon"></img>
@@ -12,7 +12,7 @@ function Connection({ title, description }) {
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
                         <p className="card-text">{description}</p>
-                        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                    <p className="card-text"><small className="text-muted-theme">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
             </div>
