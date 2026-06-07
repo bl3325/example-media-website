@@ -98,6 +98,15 @@
     color: var(--app-surface) !important;
 }
 
+.danger-hover {
+    transition: all 0.2s ease !important;
+}
+
+.danger-hover:hover {
+    background-color: #DC3545 !important;
+    color: var(--app-surface) !important;
+}
+
 /* base button */
 .searchContent button {
     width: 90%;

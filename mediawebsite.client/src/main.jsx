@@ -10,9 +10,20 @@ import './assets/scss/theme-overrides.scss';
 
 import initTheme from "./utils/DataTheme.js";
 
-initTheme().catch(() => { });
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+(async function () {
+    try {
+        await initTheme();
+    } catch (e) {
+        console.error(e);
+    } finally {
+        const s = document.getElementById('initial-theme-style');
+        if (s) s.remove();
+        document.documentElement.style.removeProperty('transition');
+        document.body.style.removeProperty('transition');
+        createRoot(document.getElementById('root')).render(
+            <StrictMode>
+                <App />
+            </StrictMode>,
+        )
+    }
+})();

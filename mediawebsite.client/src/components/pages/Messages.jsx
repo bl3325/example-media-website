@@ -24,7 +24,7 @@ function Messages() {
 
                 <hr className="border-theme"></hr>
 
-                <h6 className="text-center ">Messages</h6>
+                <h6 className="text-center">Messages</h6>
 
                 <div className={`${styles.searchContent} button-group-vertical`} role="group" aria-label="Vertical button group">
                     {exampleConnections.map((connection, index) => (

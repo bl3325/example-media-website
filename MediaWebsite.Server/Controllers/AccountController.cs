@@ -78,6 +78,7 @@ namespace MediaWebsite.Server.Controllers
         }
 
         // Viewing Account Login Status
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult IsLoggedIn()
         {

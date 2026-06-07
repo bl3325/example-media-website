@@ -5,10 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Media Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!--montserrat font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>(function () {
+        try {
+          var theme = null;
+
+          try { theme = localStorage.getItem('theme'); } catch (e) { theme = null; }
+          if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark';
+          }
+          if (!theme) theme = 'light';
+
+          document.documentElement.setAttribute('data-bs-theme', theme);
+          var bg = theme === 'dark' ? '#0b0b0b' : '#ffffff';
+          var css = 'html,body{background:' + bg + ' !important;transition:none !important;}';
+          var s = document.createElement('style');
+          s.id = 'initial-theme-style';
+          s.appendChild(document.createTextNode(css));
+          document.head.appendChild(s);
+        } catch (e) {
+        }
+      })();</script>
 </head>
-  <body>
+<body>
     <div id="root" style="width: 100vw;"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>

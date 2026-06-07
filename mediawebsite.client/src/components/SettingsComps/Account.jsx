@@ -1,7 +1,22 @@
+import { useNavigate } from "react-router-dom"
 import mainStyles from "../component-styles/SettingsMain.module.css"
 import AccountIcon from "../../../src/assets/padlock.png"
 
 function Account() {
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        try {
+            const resp = await fetch("/Account/Logout", { method: "POST" });
+
+            if (resp.ok) {
+                navigate("/Account/Login");
+            }
+        } catch (e) {
+            console.error("Logout Error", e);
+        }
+    }
+
     return (
         <div className={`${mainStyles.layout} position-relative`}>
             <img className="ratio ratio-1x1 ms-4 mt-2 position-absolute" style={{ width: "3rem" }} src={AccountIcon}></img>
@@ -15,7 +30,7 @@ function Account() {
                     <p className="lead">Account Info</p>
 
                     <div className={`${mainStyles.subSection} `}>
-
+                        
                     </div>
                 </div>
 
@@ -26,6 +41,10 @@ function Account() {
 
                     </div>
                 </div>
+
+                <button className="btn boder-1 border-danger text-danger danger-hover" onClick={ handleLogout }>
+                    Logout
+                </button>
             </div>
         </div>
     );
