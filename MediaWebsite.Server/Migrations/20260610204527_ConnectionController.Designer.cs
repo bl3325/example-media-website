@@ -3,6 +3,7 @@ using System;
 using MediaWebsite.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MediaWebsite.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260610204527_ConnectionController")]
+    partial class ConnectionController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,24 +110,6 @@ namespace MediaWebsite.Server.Migrations
                     b.HasIndex("ConnectedUserId");
 
                     b.ToTable("UserConnections");
-                });
-
-            modelBuilder.Entity("MediaWebsite.Server.Models.ConnectionRequest", b =>
-                {
-                    b.Property<string>("RequesterId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("TargetId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("RequesterId", "TargetId");
-
-                    b.HasIndex("TargetId");
-
-                    b.ToTable("ConnectionRequests");
                 });
 
             modelBuilder.Entity("MediaWebsite.Server.Models.UserTheme", b =>
@@ -295,25 +280,6 @@ namespace MediaWebsite.Server.Migrations
                     b.Navigation("ConnectedUser");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("MediaWebsite.Server.Models.ConnectionRequest", b =>
-                {
-                    b.HasOne("MediaWebsite.Server.Data.ApplicationUser", "Requester")
-                        .WithMany()
-                        .HasForeignKey("RequesterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MediaWebsite.Server.Data.ApplicationUser", "Target")
-                        .WithMany()
-                        .HasForeignKey("TargetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Requester");
-
-                    b.Navigation("Target");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

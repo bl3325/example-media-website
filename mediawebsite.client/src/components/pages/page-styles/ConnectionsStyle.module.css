@@ -29,6 +29,7 @@
     display: inline-block;
     width: fit-content;
     padding-left: 15px;
+    margin-top: 10px;
 }
 
 .connectionsHeader hr {
